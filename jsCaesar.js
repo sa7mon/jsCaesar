@@ -17,29 +17,40 @@
  */
 function doCrypt(mode, input, key) {
 	// Change to true to enable console logging for debugging.
-	var modeVerbose = false;
+	var verbose = false;
 	const MAX_KEY_SIZE = 26;
 
 	console.log("doCrypt: Executing...")
 
 	// Test if key is a number
 	if (!/^-?\d+$/.test(key)) { // Matches on only number at least one digit long
-		console.log("Key is not an integer");
+		console.log("doCrypt: Key is not an integer");
 		return;
 	}
 
-	// If we got here, the key is valid
-	// Now we check if the key is out of range.
-	var key = parseInt(shiftText, 10);
-	if (key < 0 || key >= 26) {
-		alert("Shift is out of range");
+	// If we got here, the key is a number.
+	
+	// Now let's turn it into an int and rename it.
+	var cipherKey = parseInt(shiftText, 10);
+
+	// Time to check if the key's out of range.
+	if (key < 0 || key >= MAX_KEY_SIZE) {
+		console.log("doCrypt: Key is out of range");
 		return;
 	}
 
-	if (isDecrypt)
-		key = (26 - key) % 26;
-	var preCrypt = document.getElementById(elementID).href;
-	document.getElementById(elementID).href = crypt(preCrypt, key);
+	// Check if the mode that was input is valid.
+	if !(mode=="encrypt" || mode=="decrypt") {
+		// The mode parameter is invalid
+		console.log("doCrypt: Mode is invalid. Valid inputs are either 'encrypt' or 'decrypt'.")
+		return;
+	}
+
+	// Key has been verified to be a valid number between 1 and 26
+	if (mode )
+		cipherKey = (26 - cipherKey) % 26;
+		
+		crypt(preCrypt, key);
 }
 
 /*
