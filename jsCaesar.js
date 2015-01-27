@@ -10,7 +10,6 @@
 -Clearer encrypt/decrypt mode terminology
 */
 
-"use strict";
 /*
  * Handles the HTML input/output for Caesar cipher encryption/decryption.
  * This is the one and only entry point function called from the HTML code.
@@ -20,7 +19,7 @@ function doCrypt(mode, input, key) {
 	var verbose = false;
 	const MAX_KEY_SIZE = 26;
 
-	console.log("doCrypt: Executing...")
+	console.log("doCrypt: Executing...");
 
 	// Test if key is a number
 	if (!/^-?\d+$/.test(key)) { // Matches on only number at least one digit long
@@ -29,7 +28,7 @@ function doCrypt(mode, input, key) {
 	}
 
 	// If we got here, the key is a number.
-	
+
 	// Now let's turn it into an int and rename it.
 	var cipherKey = parseInt(shiftText, 10);
 
@@ -40,17 +39,17 @@ function doCrypt(mode, input, key) {
 	}
 
 	// Check if the mode that was input is valid.
-	if !(mode=="encrypt" || mode=="decrypt") {
+	if (mode!=="encrypt" || mode!=="decrypt") {
 		// The mode parameter is invalid
-		console.log("doCrypt: Mode is invalid. Valid inputs are either 'encrypt' or 'decrypt'.")
+		console.log("doCrypt: Mode is invalid. Valid inputs are either 'encrypt' or 'decrypt'.");
 		return;
 	}
 
 	// Key has been verified to be a valid number between 1 and 26
-	if (mode )
-		cipherKey = (26 - cipherKey) % 26;
+	//if (mode )
+		//cipherKey = (26 - cipherKey) % 26;
 		
-		crypt(preCrypt, key);
+		//crypt(preCrypt, key);
 }
 
 /*

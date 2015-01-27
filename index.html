@@ -1,9 +1,12 @@
 <html>
 	<head>
 		<title>jsCaesar</title>
+		<script type="text/javascript" src="jsCaesar.js"></script>
 	</head>
 	<body>
-		<input type="text" id="plain" />
-		<input type="text" id="cipher" />
+		Input: <input type="text" id="input" /><br />
+		Cipher: <input type="text" id="cipher" /><br /><br />
+		<input type="button" value="Decrypt" id="go" onClick="doCrypt('decrypt','','');" /><input type="button" value="Encrypt" id="go2" onClick="doCrypt('','','');" /><br />
+		Output: <input type="text" id="output" />
 	</body>
 </html>
