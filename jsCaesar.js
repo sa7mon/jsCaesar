@@ -1,4 +1,3 @@
-
 /* 
 * Project Name: jsCaesar
 * Created By: 	Dan Salmon (https://danthesalmon.com)
@@ -7,9 +6,7 @@
 * Adapted from Project Nayuki, used with permission.
 * (http://www.nayuki.io/page/caesar-cipher-javascript)
 
--Support for more characters (Unicode characters 32-64,90-97,etc.)
 -Optional verbose mode with console logging for debugging.
--More parameters (input string, iterations)
 -Clearer encrypt/decrypt mode terminology
 */
 
@@ -18,16 +15,21 @@
  * Handles the HTML input/output for Caesar cipher encryption/decryption.
  * This is the one and only entry point function called from the HTML code.
  */
-function doCrypt(isDecrypt,) {
-	//5 iterations because why not?
-	//console.log("doCrypt: Executing...")
-	var shiftText = 5;
+function doCrypt(mode, input, key) {
+	// Change to true to enable console logging for debugging.
+	var modeVerbose = false;
+	const MAX_KEY_SIZE = 26;
 
-	if (!/^-?\d+$/.test(shiftText)) {
-		alert("Shift is not an integer");
+	console.log("doCrypt: Executing...")
+
+	// Test if key is a number
+	if (!/^-?\d+$/.test(key)) { // Matches on only number at least one digit long
+		console.log("Key is not an integer");
 		return;
 	}
 
+	// If we got here, the key is valid
+	// Now we check if the key is out of range.
 	var key = parseInt(shiftText, 10);
 	if (key < 0 || key >= 26) {
 		alert("Shift is out of range");
